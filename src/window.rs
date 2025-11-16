@@ -547,13 +547,12 @@ impl<'a> WindowState<'a> {
                         let texture_view =
                             texture.create_view(&wgpu::TextureViewDescriptor::default());
 
-                        self.queue.write_buffer(
-                            &self.staging_fragment_uniform_buffer,
-                            0,
-                            bytemuck::cast_slice(&[FragmentUniforms {
+                        self.update_fragment_uniform_buffer(
+                            FragmentUniforms {
                                 screensize: [dim as f32, dim as f32],
                                 mousecoords: self.mouse_coords,
-                            }]),
+                            },
+                            &self.fragment_screenshot_uniform_buffer,
                         );
                         let mut encoder = self.device.create_command_encoder(&Default::default());
                         encoder.copy_buffer_to_buffer(

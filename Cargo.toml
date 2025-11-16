@@ -16,6 +16,7 @@ edition = "2021"
 
 [dependencies]
 bytemuck = "1.14.0"
+png = "0.18.0"
 pollster = "0.3.0"
 wgpu = {git = "https://github.com/gfx-rs/wgpu.git", features = ["glsl", "spirv"]}
 winit = "0.29.4"

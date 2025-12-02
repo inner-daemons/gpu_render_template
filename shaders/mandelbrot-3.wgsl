@@ -79,5 +79,5 @@ fn main(@builtin(position) position: vec4<f32>) -> @location(0) vec4<f32> {
     var posy = (position.y / frag_uniforms.size.y - 0.5) * (2.0 * limit);
     var point = vec2<f32>(posx, posy);
     var mandel = generalized_mandelbrot(point, degree, limit);
-    return vec4<f32>(0.0, pow(mandel, 1.2) * 256.0, 0.0, 1.0);
+    return vec4<f32>(0.0, pow(mandel, 3.0) * 100000000.0 + 0.005, 0.0, 1.0);
 }
